@@ -175,7 +175,7 @@
  };
 
  # Enable synology
- fileSystems."/mnt/nas" = {
+ fileSystems."/mnt/nas_video" = {
    device = "//192.168.1.69/video";
    fsType = "cifs";
    options = [
