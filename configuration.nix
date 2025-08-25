@@ -205,5 +205,6 @@
 
  hardware.nvidia-container-toolkit.enable = true;
  boot.kernelModules = [ "nvidia" "nvidia_uvm" "nvidia_modeset" "nvidia_drm" ];
+ boot.blacklistedKernelModules = [ "nouveau" ];
 }
 
