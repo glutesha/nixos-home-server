@@ -94,7 +94,9 @@
       python3
       nvidia-container-toolkit
   ];
-
+  
+  # Docker
+  virtualisation.docker.daemon.settings.features.cdi = true;
   virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -176,8 +178,6 @@
   };
  };
  
- # Docker
- services.docker.enable = true;
 
  # Enable synology
  fileSystems."/mnt/nas_video" = {
