@@ -194,21 +194,18 @@
    ];
  };
  # NVIDIA stuff
- nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["nvidia-x11" "nvidia-persistenced" "nvidia-settings"];
-
  services.xserver.videoDrivers = [ "nvidia" ];
  hardware.graphics.enable = true;
 
+ nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "nvidia-x11" "nvidia-settings" ];
+ 
  hardware.nvidia = {
     open = false;
+    nvidiaSettings = true;
     modesetting.enable = true;      
     powerManagement.enable = true; 
-    nvidiaPersistenced = true;   
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
  };
 
  hardware.nvidia-container-toolkit.enable = true;
- boot.kernelModules = [ "nvidia" "nvidia_uvm" "nvidia_modeset" "nvidia_drm" ];
- boot.blacklistedKernelModules = [ "nouveau" ];
 }
 
