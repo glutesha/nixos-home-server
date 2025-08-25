@@ -92,6 +92,7 @@
       usbutils
       minicom
       python3
+      nvidia-container-toolkit
   ];
 
   virtualisation.docker.enable = true;
@@ -174,6 +175,9 @@
     workstation = true;
   };
  };
+ 
+ # Docker
+ services.docker.enable = true;
 
  # Enable synology
  fileSystems."/mnt/nas_video" = {
