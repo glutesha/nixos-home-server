@@ -91,6 +91,7 @@
       cowsay
       usbutils
       minicom
+      python3
   ];
 
   virtualisation.docker.enable = true;
@@ -188,5 +189,21 @@
      "_netdev"
    ];
  };
+ # NVIDIA stuff
+ nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["nvidia-x11" "nvidia-persistenced" "nvidia-settings"];
+
+ services.xserver.videoDrivers = [ "nvidia" ];
+ hardware.graphics.enable = true;
+
+ hardware.nvidia = {
+    open = false;
+    modesetting.enable = true;      
+    powerManagement.enable = true; 
+    nvidiaPersistenced = true;   
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+ };
+
+ hardware.nvidia-container-toolkit.enable = true;
+ boot.kernelModules = [ "nvidia" "nvidia_uvm" "nvidia_modeset" "nvidia_drm" ];
 }
 
