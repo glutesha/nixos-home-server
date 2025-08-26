@@ -207,5 +207,12 @@
  };
 
  hardware.nvidia-container-toolkit.enable = true;
+
+ # Monitor
+ services.getty = {
+   enable = true;
+   autologin.user = "glutesha"; 
+   autologin.ttys = [ "tty1" ];
+ };
 }
 
