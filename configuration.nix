@@ -42,7 +42,7 @@
   # };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
 
   # Enable the GNOME Desktop Environment.
@@ -208,7 +208,17 @@
 
  hardware.nvidia-container-toolkit.enable = true;
 
- # Monitor
+ # Autologin
+{
+  systemd.services."getty@tty1".enable = true;
+  systemd.services."getty@tty1".serviceConfig.ExecStart = [
+    "/usr/bin/agetty"
+    "--autologin" "glutesha"
+    "--noclear"
+    "%I"
+    "$TERM"
+  ];
+}
  services.getty = {
    autologinUser = "glutesha"; 
  };
