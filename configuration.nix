@@ -209,7 +209,7 @@
  hardware.nvidia-container-toolkit.enable = true;
 
  # Autologin
-{
+
   systemd.services."getty@tty1".enable = true;
   systemd.services."getty@tty1".serviceConfig.ExecStart = [
     "/usr/bin/agetty"
@@ -218,7 +218,7 @@
     "%I"
     "$TERM"
   ];
-}
+
  services.getty = {
    autologinUser = "glutesha"; 
  };
