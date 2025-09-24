@@ -17,6 +17,7 @@
 
   networking.hostName = "glutesha-server"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.nameservers = [ "9.9.9.9" ]; # Use quad9 DNS
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
