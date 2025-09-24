@@ -13,6 +13,7 @@
         glutesha-server = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
+	    ./media/jellyfin.nix
             ./configuration.nix
           ];
         };
