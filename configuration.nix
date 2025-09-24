@@ -19,6 +19,11 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.nameservers = [ "9.9.9.9" ]; # Use quad9 DNS
 
+  # Quad9 in resolv.conf
+  environment.etc = {
+    "resolv.conf".text = "nameserver 9.9.9.9\n";
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 
