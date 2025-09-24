@@ -37,6 +37,7 @@
       minicom
       python3
       nvidia-container-toolkit
+      bind
   ];
   
   # Docker
