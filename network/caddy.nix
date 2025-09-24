@@ -4,9 +4,7 @@
 
     virtualHosts.":80" = {
       extraConfig = ''
-	handle /jellyfin {
-	  redir /jellyfin/	
-	}
+	redir /jellyfin /jellyfin/
 
 	handle_path /jellyfin/ {
           reverse_proxy 127.0.0.1:8096
