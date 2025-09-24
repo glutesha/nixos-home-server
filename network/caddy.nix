@@ -2,9 +2,11 @@
   services.caddy = {
     enable = true;
 
-    virtualHosts.":80/jellyfin" = {
+    virtualHosts.":80" = {
       extraConfig = ''
-        reverse_proxy 127.0.0.1:8096
+	handle /jellyfin/* {
+          reverse_proxy 127.0.0.1:8096
+	}
       '';
     };
 
