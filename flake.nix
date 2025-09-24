@@ -14,6 +14,7 @@
           inherit system;
           modules = [
 	    ./media/jellyfin.nix
+            ./network/caddy.nix
             ./network/adguard.nix
             ./configuration.nix
           ];
